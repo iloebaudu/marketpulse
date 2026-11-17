@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 245 247 250;
+  --surface: 255 255 255;
+  --surface2: 240 243 247;
+  --line: 224 229 236;
+  --fg: 15 23 42;
+  --muted: 96 110 132;
+  --up: 22 150 70;
+  --down: 214 41 41;
+  --brand: 37 99 235;
+  color-scheme: light;
+}
+.dark {
+  --bg: 9 12 17;
+  --surface: 16 20 27;
+  --surface2: 23 28 37;
+  --line: 35 42 54;
+  --fg: 228 232 239;
+  --muted: 136 147 165;
+  --up: 38 199 104;
+  --down: 248 86 79;
+  --brand: 96 165 250;
+  color-scheme: dark;
+}
+
+html, body { background: rgb(var(--bg)); color: rgb(var(--fg)); }
+body { -webkit-font-smoothing: antialiased; }
+
+.num { font-family: theme("fontFamily.mono"); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+.card { @apply rounded-xl border border-line bg-surface; }
+.card-title { @apply text-xs font-semibold uppercase tracking-wider text-muted; }
+.chip { @apply inline-flex items-center gap-1 rounded-md border border-line bg-surface2 px-1.5 py-0.5 text-[11px] font-medium text-muted hover:text-fg; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+.tape:hover .animate-marquee { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .animate-marquee { animation: none; } }
